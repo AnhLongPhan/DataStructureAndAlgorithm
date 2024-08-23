@@ -1,0 +1,37 @@
+import React from "react";
+import ReactDOM from "react-dom";
+
+function FactoryStatus() {
+  return (
+    <div>
+    <h3>Control Panel</h3>
+    <div> 
+      <input type="checkbox" id="sheets-status" />
+      <span id="sheets-station" style={{ backgroundColor: "red" }} >SHEETS</span>
+    </div>
+    <div> 
+      <input type="checkbox" id="beams-status" /> 
+    <span id="beams-station" style={{ backgroundColor: "red" }} >BEAMS</span>
+    </div>
+    <div> 
+      <input type="checkbox" id="bolts-status" />
+      <span id="bolts-station" style={{ backgroundColor: "red" }} >BOLTS</span>
+    </div>
+    <div> 
+      <input type="checkbox" id="frames-status" />
+      <span id="frames-station" style={{ backgroundColor: "red" }} >FRAMES</span>
+    </div>
+  </div>
+  );
+}
+
+document.body.innerHTML = "<div id='root'></div>";
+ReactDOM.render(<FactoryStatus />, document.getElementById("root"));
+
+document.getElementById("bolts-station")?.click();
+setTimeout(() => {
+  console.log(document.getElementById("sheets-station").outerHTML);
+  console.log(document.getElementById("beams-station").outerHTML);
+  console.log(document.getElementById("bolts-station").outerHTML);
+  console.log(document.getElementById("frames-station").outerHTML);
+}, 200);
